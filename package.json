@@ -1,0 +1,25 @@
+{
+    "name": "gpss",
+    "displayName": "gpss",
+    "description": "Support for IBM gpss system",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "gpss",
+            "aliases": ["gpss", "gpss"],
+            "extensions": [".gpss"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "gpss",
+            "scopeName": "",
+            "path": "./syntaxes/gpss.tmLanguage.json"
+        }]
+    }
+}
