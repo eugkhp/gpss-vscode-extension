@@ -6,7 +6,7 @@
     "engines": {
         "vscode": "^1.33.0"
     },
-    "publisher": "ibanez&holyblackcat",
+    "publisher": "holyblackcat&ibanez",
     "categories": [
         "Programming Languages"
     ],
