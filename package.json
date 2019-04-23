@@ -6,20 +6,27 @@
     "engines": {
         "vscode": "^1.33.0"
     },
+    "publisher": "ibanez&holyblackcat",
     "categories": [
         "Programming Languages"
     ],
     "contributes": {
         "languages": [{
             "id": "gpss",
-            "aliases": ["gpss", "gpss"],
-            "extensions": [".gpss"],
+            "aliases": ["gpss", "gps"],
+            "extensions": [".gpss", ".gps"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
             "language": "gpss",
-            "scopeName": "",
+            "scopeName": "./",
             "path": "./syntaxes/gpss.tmLanguage.json"
-        }]
+        }],
+        "snippets": [
+            {
+                "language": "gpss",
+                "path": "./snippets/basicsnippets.json"
+            }
+        ]
     }
 }

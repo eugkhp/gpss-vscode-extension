@@ -1,0 +1,54 @@
+{
+    "simulate": {
+        "prefix": "simulate",
+        "body": "SIMULATE"
+    },
+    "generate": {
+        "prefix": "genenerate",
+        "body": "GENERATE ${1:frequency},${2:delta},${3:start},${4:amount},${5:priority},${6:params},${7:format}"
+    },
+    "advance": {
+        "prefix": "advance",
+        "body": "ADVANCE ${1:wait_time},${2:delta}"
+    },
+    "transfer": {
+        "prefix": "transfer",
+        "body": "TRANSFER ${1:chance},${2:goto},${3:goto}"
+    },
+    "terminate": {
+        "prefix": "terminate",
+        "body": "TERMINATE "
+    },
+    "seize": {
+        "prefix": "seize",
+        "body": "SEIZE ${1:device}"
+    },
+    "release": {
+        "prefix": "release",
+        "body": "RELEASE ${1:device}"
+    },
+    "start": {
+        "prefix": "start",
+        "body": "START ${1:amount}"
+    },
+    "queue": {
+        "prefix": "queue",
+        "body": "QUEUE ${1:queue}"
+    },
+    "depart": {
+        "prefix": "depart",
+        "body": "DEPART ${1:queue}"
+    },
+    "initial": {
+        "prefix": "initial",
+        "body": "INITIAL X$${1:name},${2:value}"
+    },
+    "test": {
+        "prefix": "test",
+        "body": "TEST ${1:mode} X$${2:name1},X$${3:name2}"
+    },
+    "savevalue": {
+        "prefix": "savevalue",
+        "body": "SAVEVALUE  ${2:name},X$${3:name}"
+    }
+}
