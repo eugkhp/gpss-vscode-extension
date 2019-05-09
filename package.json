@@ -1,32 +1,66 @@
 {
-    "name": "gpss",
-    "displayName": "gpss",
-    "description": "Support for IBM gpss system",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.33.0"
-    },
-    "publisher": "holyblackcat&ibanez",
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [{
-            "id": "gpss",
-            "aliases": ["gpss", "gps"],
-            "extensions": [".gpss", ".gps"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "gpss",
-            "scopeName": "./",
-            "path": "./syntaxes/gpss.tmLanguage.json"
-        }],
-        "snippets": [
-            {
-                "language": "gpss",
-                "path": "./snippets/basicsnippets.json"
-            }
-        ]
-    }
+	"name": "gpss",
+	"displayName": "gpss",
+	"description": "Gpss support",
+	"version": "0.0.1",
+	"publisher": "ibanezn04&holyblackcat",
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "Hello World"
+			}
+		],
+		"languages": [
+			{
+				"id": "gpss",
+				"aliases": [
+					"gpss",
+					"gps"
+				],
+				"extensions": [
+					".gpss",
+					".gps"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "gpss",
+				"scopeName": "./",
+				"path": "./syntaxes/gpss.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "gpss",
+				"path": "./snippets/basicsnippets.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"tslint": "^5.12.1",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	}
 }

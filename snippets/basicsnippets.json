@@ -17,7 +17,7 @@
     },
     "terminate": {
         "prefix": "terminate",
-        "body": "TERMINATE "
+        "body": "TERMINATE ${1:A}"
     },
     "seize": {
         "prefix": "seize",
