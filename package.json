@@ -3,7 +3,7 @@
 	"displayName": "gpss",
 	"description": "Gpss support",
 	"version": "0.0.1",
-	"publisher": "ibanezn04&holyblackcat",
+	"publisher": "ibanezn04holyblackcat",
 	"engines": {
 		"vscode": "^1.33.0"
 	},
