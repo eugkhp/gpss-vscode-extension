@@ -9,9 +9,16 @@ function activate(context) {
         const pathlib = require('path');
         let fullFilePath;
         let path;
+        let filename;
         if (currentWindow != null) {
             fullFilePath = currentWindow.document.uri.fsPath;
             path = pathlib.dirname(fullFilePath);
+            filename = pathlib.parse(fullFilePath).name;
+            let fileType = pathlib.parse(fullFilePath).ext;
+            if (fileType != ".gpss") {
+                vscode.window.showErrorMessage("Wrong source file, expected .gpss, given: " + filename + fileType);
+                return;
+            }
         }
         let execPath = path + "\\gpssh.exe" + " " + fullFilePath;
         child(execPath, (e, stdout, stderr) => {
@@ -22,10 +29,9 @@ function activate(context) {
             console.log('stdout ', stdout);
             console.log('stderr ', stderr);
         });
-        let filename = pathlib.parse(fullFilePath).name;
         var openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".liss");
         vscode.workspace.openTextDocument(openPath).then(doc => {
-            vscode.window.showTextDocument(doc);
+            vscode.window.showTextDocument(doc, { viewColumn: vscode.ViewColumn.Beside });
         });
     });
     context.subscriptions.push(disposable);
