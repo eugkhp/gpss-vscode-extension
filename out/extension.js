@@ -14,35 +14,23 @@ function activate(context) {
     // The commandId parameter must match the command field in package.json
     let disposable = vscode.commands.registerCommand('extension.runGpssModel', () => {
         // The code you place here will be executed every time your command is executed
-        var exec = require('child_process').execFile;
         let a = vscode.window.activeTextEditor;
+        var child = require('child_process').exec;
+        let fspath = "not found";
         let path = "not found";
         if (a != null) {
-            path = a.document.uri.fsPath;
-            path = path.substring(0, path.lastIndexOf("\\"));
+            fspath = a.document.uri.fsPath;
+            path = fspath.substring(0, fspath.lastIndexOf("\\"));
         }
-        var child = require('child_process').execFile;
-        path = "C:\\Users\\evgenii\\university\\Model\\test\\gpssh.exe";
-        var parameters = ["1.gpss"];
-        child(path, parameters, function (err, data) {
-            console.log("hey");
-            if (err.code) {
-                console.error(err.code);
-                return;
+        path = path + "\\gpssh.exe" + " " + fspath;
+        let answer = child(path, (e, stdout, stderr) => {
+            if (e instanceof Error) {
+                console.error(e);
+                throw e;
             }
-            console.log(data.toString());
+            console.log('stdout ', stdout);
+            console.log('stderr ', stderr);
         });
-        // Display a message box to the user
-        vscode.window.showInformationMessage(path);
-        // var child = require('child_process').execFile;
-        // var executablePath = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
-        // child(executablePath, function (err, data) {
-        //     if (err.code) {
-        //         console.error(err.code);
-        //         return;
-        //     }
-        //     console.log(data.toString());
-        // });
     });
     context.subscriptions.push(disposable);
 }
