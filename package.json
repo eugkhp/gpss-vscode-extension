@@ -4,6 +4,10 @@
 	"description": "Gpss support",
 	"version": "0.0.1",
 	"publisher": "ibanezn04holyblackcat",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ibanezn04/gpss-vscode-extension.git"
+	},
 	"engines": {
 		"vscode": "^1.33.0"
 	},
