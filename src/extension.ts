@@ -14,23 +14,37 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('extension.runGpssModel', () => {
-		// The code you place here will be executed every time your command is executed
-		var exec = require('child_process').execFile;
-		let a = vscode.window.activeTextEditor
-		let path = "not found"
-		if (a != null) {
-			path = a.document.uri.fsPath;
-			path = path.substring(0, path.lastIndexOf("\\"));
-		}
-		
-		exec('spssh.exe', ['1.gpss'], { cwd: path }, (err: any, data: any) => {
-            if (err) vscode.window.showInformationMessage(err);
-            else vscode.window.showInformationMessage(data);
+        // The code you place here will be executed every time your command is executed
+        var exec = require('child_process').execFile;
+        let a = vscode.window.activeTextEditor;
+        let path = "not found";
+        if (a != null) {
+            path = a.document.uri.fsPath;
+            path = path.substring(0, path.lastIndexOf("\\"));
+        }
+        var child = require('child_process').execFile;
+		path = "C:\\Users\\evgenii\\university\\Model\\test\\gpssh.exe";
+		var parameters = ["1.gpss"];
+        child(path, parameters, function (err: { code: any; }, data: { toString: () => void; }) {
+			console.log("hey");
+            if (err.code) {
+                console.error(err.code);
+                return;
+            }
+            console.log(data.toString());
         });
-		// Display a message box to the user
-		vscode.window.showInformationMessage(path);
-		
-	});
+        // Display a message box to the user
+        vscode.window.showInformationMessage(path);
+        // var child = require('child_process').execFile;
+        // var executablePath = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
+        // child(executablePath, function (err, data) {
+        //     if (err.code) {
+        //         console.error(err.code);
+        //         return;
+        //     }
+        //     console.log(data.toString());
+        // });
+    });
 
 	context.subscriptions.push(disposable);
 }

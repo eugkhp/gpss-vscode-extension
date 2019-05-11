@@ -21,14 +21,28 @@ function activate(context) {
             path = a.document.uri.fsPath;
             path = path.substring(0, path.lastIndexOf("\\"));
         }
-        exec('spssh.exe', ['1.gpss'], { cwd: path }, (err, data) => {
-            if (err)
-                vscode.window.showInformationMessage(err);
-            else
-                vscode.window.showInformationMessage(data);
+        var child = require('child_process').execFile;
+        path = "C:\\Users\\evgenii\\university\\Model\\test\\gpssh.exe";
+        var parameters = ["1.gpss"];
+        child(path, parameters, function (err, data) {
+            console.log("hey");
+            if (err.code) {
+                console.error(err.code);
+                return;
+            }
+            console.log(data.toString());
         });
         // Display a message box to the user
         vscode.window.showInformationMessage(path);
+        // var child = require('child_process').execFile;
+        // var executablePath = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
+        // child(executablePath, function (err, data) {
+        //     if (err.code) {
+        //         console.error(err.code);
+        //         return;
+        //     }
+        //     console.log(data.toString());
+        // });
     });
     context.subscriptions.push(disposable);
 }
