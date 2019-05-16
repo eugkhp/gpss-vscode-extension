@@ -11,19 +11,28 @@ export function activate(context: vscode.ExtensionContext) {
 		let fullFilePath;
 		let path;
 		let filename;
+		let fileType;
+		let execPath;
+
 		if (currentWindow != null) {
 			fullFilePath = currentWindow.document.uri.fsPath;
 			path = pathlib.dirname(fullFilePath);
 			filename = pathlib.parse(fullFilePath).name;
 
-			let fileType = pathlib.parse(fullFilePath).ext;
-			if (fileType != ".gpss"){
-				vscode.window.showErrorMessage("Wrong source file, expected .gpss, given: " + filename + fileType);
+			fileType = pathlib.parse(fullFilePath).ext;
+			if (fileType != ".gpss" && fileType != ".gps" && fileType != ".liss" && fileType != ".lis") {
+				vscode.window.showErrorMessage("Wrong source file, expected .gpss or .gps, given: " + filename + fileType);
 				return;
 			}
-
+			if (fileType == ".lis") {
+				fileType = ".gps"
+			}
+			if (fileType == ".liss") {
+				fileType = ".gpss"
+			}
 		}
-		let execPath = path + "\\gpssh.exe" + " " + fullFilePath;
+
+		execPath = path + "\\gpssh.exe" + " " + path + "\\" + filename + fileType;
 		child(execPath, (e: any, stdout: any, stderr: any) => {
 			if (e instanceof Error) {
 				console.error(e);
@@ -32,10 +41,16 @@ export function activate(context: vscode.ExtensionContext) {
 			console.log('stdout ', stdout);
 			console.log('stderr ', stderr);
 		});
-		
+
 		var openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".liss");
+
+		let windowToOpen = vscode.ViewColumn.Beside;
+		let currentFileType = pathlib.parse(fullFilePath).ext;
+		if (currentFileType == ".liss" || currentFileType == ".lis") {
+			windowToOpen = vscode.ViewColumn.Active;
+		}
 		vscode.workspace.openTextDocument(openPath).then(doc => {
-			vscode.window.showTextDocument(doc, {viewColumn: vscode.ViewColumn.Beside});
+			vscode.window.showTextDocument(doc, { viewColumn: windowToOpen, preserveFocus: false });
 		});
 	});
 
