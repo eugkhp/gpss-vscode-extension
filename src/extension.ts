@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import * as webviewContent from './webviewContent';
 export function activate(context: vscode.ExtensionContext) {
 
 	console.log('Congratulations, your extension "gpss" is now active!');
@@ -11,30 +12,29 @@ export function activate(context: vscode.ExtensionContext) {
 		let fullFilePath;
 		let path;
 		let filename;
-		if (currentWindow != null) {
+		if (currentWindow !== undefined) {
 			fullFilePath = currentWindow.document.uri.fsPath;
 			path = pathlib.dirname(fullFilePath);
 			filename = pathlib.parse(fullFilePath).name;
 
 			let fileType = pathlib.parse(fullFilePath).ext;
-			if (fileType != ".gpss"){
+			if (fileType !== ".gpss"){
 				vscode.window.showErrorMessage("Wrong source file, expected .gpss, given: " + filename + fileType);
 				return;
 			}
 
 		}
 		let execPath = path + "\\gpssh.exe" + " " + fullFilePath;
-		child(execPath, (e: any, stdout: any, stderr: any) => {
-			if (e instanceof Error) {
-				console.error(e);
-				throw e;
-			}
-			console.log('stdout ', stdout);
-			console.log('stderr ', stderr);
-		});
-		
+		try {
+			child(execPath);
+		} catch (e) {
+			vscode.window.showErrorMessage("Interpreter error.");
+			const report = vscode.window.createWebviewPanel("errorReport", "ErrorReport", vscode.ViewColumn.Beside, {});
+			report.webview.html = webviewContent.getWebviewContentErrorReport(e.message);
+			return;
+		}
 		var openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".liss");
-		vscode.workspace.openTextDocument(openPath).then(doc => {
+		vscode.workspace.openTextDocument(openPath).then((doc :vscode.TextDocument) => {
 			vscode.window.showTextDocument(doc, {viewColumn: vscode.ViewColumn.Beside});
 		});
 	});

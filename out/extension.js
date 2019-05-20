@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
+const webviewContent = require("./webviewContent");
 function activate(context) {
     console.log('Congratulations, your extension "gpss" is now active!');
     let disposable = vscode.commands.registerCommand('extension.runGpssModel', () => {
@@ -10,27 +11,28 @@ function activate(context) {
         let fullFilePath;
         let path;
         let filename;
-        if (currentWindow != null) {
+        if (currentWindow !== undefined) {
             fullFilePath = currentWindow.document.uri.fsPath;
             path = pathlib.dirname(fullFilePath);
             filename = pathlib.parse(fullFilePath).name;
             let fileType = pathlib.parse(fullFilePath).ext;
-            if (fileType != ".gpss") {
+            if (fileType !== ".gpss") {
                 vscode.window.showErrorMessage("Wrong source file, expected .gpss, given: " + filename + fileType);
                 return;
             }
         }
         let execPath = path + "\\gpssh.exe" + " " + fullFilePath;
-        child(execPath, (e, stdout, stderr) => {
-            if (e instanceof Error) {
-                console.error(e);
-                throw e;
-            }
-            console.log('stdout ', stdout);
-            console.log('stderr ', stderr);
-        });
+        try {
+            child(execPath);
+        }
+        catch (e) {
+            vscode.window.showErrorMessage("Interpreter error.");
+            const report = vscode.window.createWebviewPanel("errorReport", "ErrorReport", vscode.ViewColumn.Beside, {});
+            report.webview.html = webviewContent.getWebviewContentErrorReport(e.message);
+            return;
+        }
         var openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".liss");
-        vscode.workspace.openTextDocument(openPath).then(doc => {
+        vscode.workspace.openTextDocument(openPath).then((doc) => {
             vscode.window.showTextDocument(doc, { viewColumn: vscode.ViewColumn.Beside });
         });
     });
