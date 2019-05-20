@@ -61,9 +61,8 @@ export function activate(context: vscode.ExtensionContext) {
 			vscode.workspace.openTextDocument(openPath).then(doc => {
 				vscode.window.showTextDocument(doc, { viewColumn: windowToOpen, preserveFocus: false });
 			});
-
+			vscode.commands.executeCommand("workbench.action.files.revert");
 		}
-
 		context.subscriptions.push(disposable);
 	});
 }

@@ -22,7 +22,7 @@
 		"commands": [
 			{
 				"command": "extension.runGpssModel",
-				"title": "Run Gpss"
+				"title": "GPSS: Run simulation"
 			}
 		],
 		"languages": [
