@@ -11,4 +11,4 @@ Hi! This extention helps you work with IBM GPSS(General Purpose Simulation Syste
 ## Help
 
 If you have any ideas how to make this extenion better(bugs of features) please create issue on github page:
-https://github.com/ibanezn04/gpss-vscode-extension
+<https://github.com/ibanezn04/gpss-vscode-extension>
