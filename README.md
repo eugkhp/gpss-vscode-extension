@@ -1,6 +1,6 @@
 # GPSS support
 
-This extention helps you work with IBM GPSS(General Purpose Simulation System).
+This extention helps you work with IBM GPSS(General Purpose Simulation System).  
 Just throw gpss.exe in folder with your source code (.gps or .gpss)
 
 ## Features
@@ -16,7 +16,7 @@ If you have any ideas how to make this extenion better(bugs of features) please 
 
 # Поддержка GPSS
 
-Это расширение помогает работать с IBM GPSS(General Purpose Simulation System)
+Это расширение помогает работать с IBM GPSS(General Purpose Simulation System).  
 Просто положите gpss.exe в папку с исходным кодом (.gps или .gpss)
 
 ## Возможности

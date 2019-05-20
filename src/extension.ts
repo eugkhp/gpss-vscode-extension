@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 				report.webview.html = webviewContent.getWebviewContentErrorReport(e.message);
 				return;
 			}
-			
+
 			child(execPath, (e: any, stdout: any, stderr: any) => {
 				if (e instanceof Error) {
 					console.error(e);
@@ -52,6 +52,9 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 
 			var openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".liss");
+			if (fileType !== ".gps") {
+				openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".lis");
+			}
 
 			let windowToOpen = vscode.ViewColumn.Beside;
 			let currentFileType = pathlib.parse(fullFilePath).ext;
