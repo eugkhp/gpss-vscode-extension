@@ -42,7 +42,7 @@
 		"grammars": [
 			{
 				"language": "gpss",
-				"scopeName": "./",
+				"scopeName": "source.gpss",
 				"path": "./syntaxes/gpss.tmLanguage.json"
 			}
 		],

@@ -1,0 +1,11 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "gpss",
+	"patterns": [
+        {"name": "keyword.other.gpss", "match": "\\b(?:BVARIABLE|CLEAR|CONDUCT|CONTINUE|EQU|EXIT|FUNCTION|FVARIABLE|HALT|INCLUDE|INITIAL|INTEGRATE|MATRIX|QTABLE|REPORT|RESET|RMULT|SHOW|START|STEP|STOP|STORAGE|TABLE|VARIABLE)\\b"},
+        {"name": "keyword.control.gpss", "match": "\\b(?:ADOPT|ADVANCE|ALTER|ASSEMBLE|ASSIGN|BUFFER|CLOSE|COUNT|DEPART|DISPLACE|ENTER|EXAMINE|EXECUTE|FAVAIL|FUNAVAIL|GATE|GATHER|GENERATE|INDEX|INTEGRATION|JOIN|LEAVE|LINK|LOGIC|LOOP|MARK|MATCH|MSAVEVALUE|OPEN|PLUS|PREEMPT|PRIORITY|QUEUE|READ|RELEASE|REMOVE|RETURN|SAVAIL|SAVEVALUE|SCAN|SEEK|SEIZE|SELECT|SPLIT|SUNAVAIL|TABULATE|TERMINATE|TEST|TRACE|TRANSFER|UNLINK|UNTRACE|WRITE)\\b"},
+        {"name": "constant.numeric.gpss", "match": "[0-9]+(?:\\.[0-9]*)?"},
+        {"name": "constant.numeric.gpss", "match": "\\.[0-9]+"}
+	],
+	"scopeName": "source.gpss"
+}
