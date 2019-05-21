@@ -2,7 +2,7 @@
 	"name": "gpss",
 	"displayName": "gpss",
 	"description": "Gpss support",
-	"version": "1.0.0",
+	"version": "1.0.5",
 	"publisher": "ibanezn04holyblackcat",
 	"repository": {
 		"type": "git",
