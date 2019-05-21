@@ -32,7 +32,7 @@ export function activate(context: vscode.ExtensionContext) {
 				fileType = ".gpss";
 			}
 
-			execPath = path + "\\gpssh.exe" + " " + path + "\\" + filename + fileType;
+			execPath = `"${path}\\gpssh.exe" "${path}\\${filename}${fileType}"`;
 			try {
 				child(execPath);
 			} catch (e) {
