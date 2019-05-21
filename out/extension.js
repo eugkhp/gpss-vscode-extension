@@ -47,7 +47,7 @@ function activate(context) {
                 console.log('stderr ', stderr);
             });
             var openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".liss");
-            if (fileType !== ".gps") {
+            if (fileType === ".gps") {
                 openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".lis");
             }
             let windowToOpen = vscode.ViewColumn.Beside;

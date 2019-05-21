@@ -32,7 +32,7 @@ export function activate(context: vscode.ExtensionContext) {
 				fileType = ".gpss";
 			}
 
-			execPath = path + "\\gpssh.exe" + " " + path + "\\" + filename + fileType;
+			execPath = `"${path}\\gpssh.exe" "${path}\\${filename}${fileType}"`;
 			try {
 				child(execPath);
 			} catch (e) {
@@ -52,7 +52,7 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 
 			var openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".liss");
-			if (fileType !== ".gps") {
+			if (fileType === ".gps") {
 				openPath = vscode.Uri.parse("file:///" + path + "\\" + filename + ".lis");
 			}
 
