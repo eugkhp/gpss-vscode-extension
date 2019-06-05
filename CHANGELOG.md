@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0]
+
+- Added hotkey for command
+
 ## [1.0.x]
 
 - Bug fixes
@@ -11,3 +15,4 @@ All notable changes to this project will be documented in this file.
 ### Initial release
 
 - Added basic functionality
+  
