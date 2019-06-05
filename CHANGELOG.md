@@ -2,9 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.1.0]
+## [1.1.x]
 
 - Added hotkey for command
+- Bug fixes
 
 ## [1.0.x]
 
