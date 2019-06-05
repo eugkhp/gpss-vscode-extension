@@ -2,7 +2,7 @@
 	"name": "gpss",
 	"displayName": "gpss",
 	"description": "Gpss support",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"publisher": "ibanezn04holyblackcat",
 	"repository": {
 		"type": "git",
@@ -23,6 +23,13 @@
 			{
 				"command": "extension.runGpssModel",
 				"title": "GPSS: Run simulation"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.runGpssModel",
+				"key": "f7",
+				"when": "editorTextFocus"
 			}
 		],
 		"languages": [
