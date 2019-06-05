@@ -2,8 +2,9 @@
 	"name": "gpss",
 	"displayName": "gpss",
 	"description": "Gpss support",
-	"version": "1.1.2",
+	"version": "1.1.3",
 	"publisher": "ibanezn04holyblackcat",
+	"icon": "icon.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ibanezn04/gpss-vscode-extension.git"
