@@ -28,8 +28,7 @@
 		"keybindings": [
 			{
 				"command": "extension.runGpssModel",
-				"key": "f7",
-				"when": "editorTextFocus"
+				"key": "f7"
 			}
 		],
 		"languages": [
