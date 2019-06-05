@@ -57,6 +57,6 @@
     },
     "function": {
         "prefix": "function",
-        "body": "FUNCTION  ${1:x},X$${2:function_type}"
+        "body": "FUNCTION  ${1:x},{2:function_type}"
     }
 }
