@@ -2,8 +2,9 @@
 	"name": "gpss",
 	"displayName": "gpss",
 	"description": "Gpss support",
-	"version": "1.0.6",
+	"version": "1.1.4",
 	"publisher": "ibanezn04holyblackcat",
+	"icon": "icon.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ibanezn04/gpss-vscode-extension.git"
@@ -23,6 +24,12 @@
 			{
 				"command": "extension.runGpssModel",
 				"title": "GPSS: Run simulation"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.runGpssModel",
+				"key": "f7"
 			}
 		],
 		"languages": [

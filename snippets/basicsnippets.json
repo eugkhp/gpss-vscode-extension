@@ -11,6 +11,10 @@
         "prefix": "advance",
         "body": "ADVANCE ${1:wait_time},${2:delta}"
     },
+    "assign" : {
+        "prefix": "ASSIGN",
+        "body": "ASSIGN ${1:param},${2:number}"
+    },
     "transfer": {
         "prefix": "transfer",
         "body": "TRANSFER ${1:chance},${2:goto},${3:goto}"
@@ -50,5 +54,9 @@
     "savevalue": {
         "prefix": "savevalue",
         "body": "SAVEVALUE  ${2:name},X$${3:name}"
+    },
+    "function": {
+        "prefix": "function",
+        "body": "FUNCTION  ${1:x},{2:function_type}"
     }
 }
