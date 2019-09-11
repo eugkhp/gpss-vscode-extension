@@ -5,58 +5,57 @@
     },
     "generate": {
         "prefix": "genenerate",
-        "body": "GENERATE ${1:frequency},${2:delta},${3:start},${4:amount},${5:priority},${6:params},${7:format}"
-    },
+        "body": "GENERATE"},
     "advance": {
         "prefix": "advance",
-        "body": "ADVANCE ${1:wait_time},${2:delta}"
+        "body": "ADVANCE"
     },
     "assign" : {
         "prefix": "ASSIGN",
-        "body": "ASSIGN ${1:param},${2:number}"
+        "body": "ASSIGN"
     },
     "transfer": {
         "prefix": "transfer",
-        "body": "TRANSFER ${1:chance},${2:goto},${3:goto}"
+        "body": "TRANSFER"
     },
     "terminate": {
         "prefix": "terminate",
-        "body": "TERMINATE ${1:A}"
+        "body": "TERMINATE"
     },
     "seize": {
         "prefix": "seize",
-        "body": "SEIZE ${1:device}"
+        "body": "SEIZE"
     },
     "release": {
         "prefix": "release",
-        "body": "RELEASE ${1:device}"
+        "body": "RELEASE"
     },
     "start": {
         "prefix": "start",
-        "body": "START ${1:amount}"
+        "body": "START"
     },
     "queue": {
         "prefix": "queue",
-        "body": "QUEUE ${1:queue}"
+        "body": "QUEUE"
     },
     "depart": {
         "prefix": "depart",
-        "body": "DEPART ${1:queue}"
+        "body": "DEPART"
     },
     "initial": {
         "prefix": "initial",
-        "body": "INITIAL X$${1:name},${2:value}"
+        "body": "INITIAL"
     },
     "test": {
         "prefix": "test",
-        "body": "TEST ${1:mode} X$${2:name1},X$${3:name2}"
+        "body": "TEST"
     },
     "savevalue": {
         "prefix": "savevalue",
-        "body": "SAVEVALUE  ${2:name},X$${3:name}"
+        "body": "SAVEVALUE"
     },
     "function": {
         "prefix": "function",
-        "body": "FUNCTION  ${1:x},{2:function_type}"
+        "body": "FUNCTION"
     }
 }
